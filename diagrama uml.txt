@@ -1,0 +1,42 @@
+classDiagram
+    class Personaje {
+        - vida : int
+        - salud : int
+        - puntosAtaque : int
+        - nivel : int
+        + porcentajeSalud() int
+        + imprimeBarra() void
+        + recibeAtaque(int) void
+        + atacar(Personaje&) void {abstract}
+        + imprimir() void
+        + revive() void {abstract}
+        + operator>(Personaje&) : bool
+    }
+
+    class Guerrero {
+        - fuerza : int
+        + atacar(Personaje&) void
+        + recibeAtaque(int) void
+        + imprimir() void
+        + revive() void
+    }
+
+    class Arquero {
+        - precision : float
+        + atacar(Personaje&) void
+        + recibeAtaque(int) void
+        + imprimir() void
+        + revive() void
+    }
+
+    class Mago {
+        - maná : int
+        + atacar(Personaje&) void
+        + recibeAtaque(int) void
+        + imprimir() void
+        + revive() void
+    }
+
+    Personaje <|-- Guerrero
+    Personaje <|-- Arquero
+    Personaje <|-- Mago
